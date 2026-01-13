@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetFinder - Admin Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00F0FF",
+                        "brand-blue": "#0066FF",
+                        "dark-base": "#020617",
+                        "dark-card": "#0F172A",
+                        "neon-blue": "#00E0FF",
+                        "neon-purple": "#A855F7",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+        .neon-border {
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        .chart-bar {
+            background: linear-gradient(180deg, #00F0FF 0%, #0066FF 100%);
+        }
+        body {
+            background-color: #020617;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-dark-base font-display antialiased overflow-hidden">
+<div class="relative flex h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-dark-base text-slate-200">
+<header class="p-6 pt-8 flex items-center justify-between z-10">
+<div class="flex flex-col">
+<h1 class="text-xs font-bold text-neon-blue uppercase tracking-widest">Panel de Control</h1>
+<p class="text-xl font-extrabold text-white">Dashboard Admin</p>
+</div>
+<div class="relative">
+<button class="w-10 h-10 rounded-full bg-dark-card border border-slate-800 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-slate-400">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-neon-blue rounded-full"></span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto no-scrollbar px-6 pb-24">
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-dark-card p-4 rounded-2xl border border-slate-800/50">
+<span class="material-symbols-outlined text-neon-blue mb-2">pets</span>
+<p class="text-2xl font-bold text-white">1,284</p>
+<p class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Mascotas Encontradas</p>
+</div>
+<div class="bg-dark-card p-4 rounded-2xl border border-slate-800/50">
+<span class="material-symbols-outlined text-neon-purple mb-2">emergency</span>
+<p class="text-2xl font-bold text-white">42</p>
+<p class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Alertas Activas</p>
+</div>
+</div>
+<div class="bg-dark-card p-5 rounded-2xl border border-slate-800/50 mb-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-sm font-bold text-white">Reportes Semanales</h3>
+<span class="text-[10px] text-neon-blue font-bold px-2 py-1 bg-neon-blue/10 rounded-md border border-neon-blue/20">+12% vs last week</span>
+</div>
+<div class="flex items-end justify-between h-32 gap-2">
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full h-[40%] bg-slate-800 rounded-t-sm"></div>
+<span class="text-[10px] text-slate-600 font-bold">L</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full h-[65%] bg-slate-800 rounded-t-sm"></div>
+<span class="text-[10px] text-slate-600 font-bold">M</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full h-[55%] bg-slate-800 rounded-t-sm"></div>
+<span class="text-[10px] text-slate-600 font-bold">X</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full h-[85%] chart-bar rounded-t-sm neon-glow"></div>
+<span class="text-[10px] text-neon-blue font-bold">J</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full h-[70%] bg-slate-800 rounded-t-sm"></div>
+<span class="text-[10px] text-slate-600 font-bold">V</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full h-[45%] bg-slate-800 rounded-t-sm"></div>
+<span class="text-[10px] text-slate-600 font-bold">S</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full h-[30%] bg-slate-800 rounded-t-sm"></div>
+<span class="text-[10px] text-slate-600 font-bold">D</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold text-white">Alertas Recientes</h3>
+<button class="text-xs text-neon-blue font-semibold">Ver todo</button>
+</div>
+<div class="flex items-center gap-4 bg-dark-card/50 p-3 rounded-xl border border-slate-800/30">
+<div class="w-12 h-12 rounded-lg bg-center bg-cover border border-slate-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKz3GrCeUpx-hNyBTgcIAtMdbLu5bvnSU7FeDvalqFIS6Wk1Bs93fi_aMZ4Y5gKUWYdrKPm3XeZh2mGm_C2ZqG8E6IRwSdZlvfP6KmpQdahSCDkUBvzON_lgiPOUlKtgdXo8hg3UgO98ehtpNrp1LbJJJj0c28Eg4LmwJFyEzsXByLnMeFZk41VXD9QhBZHle27DCdLuptM3JUaJ7kfIhtG4iYfO7yxN5f5mVtAKfc4Ckxpenc6k4zEROCSwK9eaZJ-uX7UJpK3Dk");'></div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white">Max - Golden Retriever</p>
+<p class="text-xs text-slate-500">Reportado hace 12 min • Zona Centro</p>
+</div>
+<div class="px-2 py-1 rounded bg-red-500/10 border border-red-500/20">
+<span class="text-[10px] text-red-500 font-bold">URGENTE</span>
+</div>
+</div>
+<div class="bg-dark-card p-5 rounded-2xl border border-slate-800/50">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-white">Tendencia de Adopción</h3>
+<span class="material-symbols-outlined text-slate-600 text-sm">more_horiz</span>
+</div>
+<div class="relative h-24 w-full overflow-hidden">
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path d="M0,80 Q25,60 40,75 T100,20" fill="none" stroke="url(#gradient)" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<linearGradient id="gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#0066FF"></stop>
+<stop offset="100%" stop-color="#00F0FF"></stop>
+</linearGradient>
+</defs>
+<path d="M0,80 Q25,60 40,75 T100,20 V100 H0 Z" fill="url(#fill-gradient)" opacity="0.1"></path>
+<linearGradient id="fill-gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00F0FF"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</linearGradient>
+</svg>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[9px] text-slate-600 font-bold tracking-widest uppercase">Enero</span>
+<span class="text-[9px] text-slate-600 font-bold tracking-widest uppercase">Junio</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-dark-base/80 backdrop-blur-xl border-t border-slate-800 px-8 py-4 z-20">
+<div class="flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-neon-blue">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">grid_view</span>
+<span class="text-[10px] font-bold">Overview</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-600">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-bold">Mapa</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-600">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-bold">Usuarios</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-600">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Ajustes</span>
+</button>
+</div>
+</div>
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-neon-blue/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="absolute top-1/2 -right-24 w-48 h-48 bg-neon-purple/5 rounded-full blur-[60px] pointer-events-none"></div>
+</div>
+
+</body></html>

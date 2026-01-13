@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mapa de Mascotas Perdidas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #0056b3;
+            --secondary: #e6f0ff;
+            --accent: #007bff;
+            --surface: #ffffff;
+            --background-light: #f8fbff;
+        }
+        @layer base {
+            body {
+                @apply font-display text-slate-900;
+            }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .marker-glow {
+            box-shadow: 0 0 15px rgba(0, 86, 179, 0.4);
+        }
+        .map-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 15%, rgba(255,255,255,0) 85%, rgba(255,255,255,0.9) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0056b3",
+                        "primary-light": "#e6f0ff",
+                        "accent": "#007bff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light h-screen w-full overflow-hidden flex flex-col relative">
+<div class="absolute inset-0 z-0 w-full h-full bg-[#f0f4f8]">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center grayscale-[20%] sepia-[10%] hue-rotate-[190deg] brightness-[1.05]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRZBhB-9rND6VcXBeueIqT-z5YytBUWfLwRgpyVVZtClJ01R_5AiahfXXrgVqBjO4b6mwwRSSog4gEgyaEnWRifhKL6SzpzXHUKxxWRbrloXeUmAf0P28h3uJkH4vFMxs_o4arM5KfxATs03Ia41xDvg-IL8tsgWqjIHW3T8iUluNgtcOEfHcsdIcSTAiGdhglT3wD7dfbs0wjIvOh90p1rcmzhJ0zdmciQeNfonDrZHs6edD_Ovfk3IoPI1kOh_bP8oiW9HOHK6o');"></div>
+<div class="absolute inset-0 map-gradient-overlay pointer-events-none"></div>
+<div class="absolute top-[32%] left-[25%] flex flex-col items-center transform transition-transform cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-primary shadow-lg p-0.5 overflow-hidden z-10 relative">
+<img class="w-full h-full object-cover rounded-full grayscale-[30%]" data-alt="Orange tabby cat face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXtPiTkvEdMd3DlONSUyqLCgPhwKIrgBxn_cr47QnLHs_dn-iKGdKK3iwuCeg8Rw24c2D0CM6HfNG0t-XNaAEnRT7PLmzZniNYk7utqpv8ecF1ZKPr6VKwDKRC1m0uQkSrgpGnHHlIWHNdP4Gcl2DwBFeczuaTvhx4TmcoOjgUQDnvDBImQFe7DpOvteDFTiOLZcJYkxIAX-5E7O5T3WbAhzdNksU5CTqSyJQmyz9NPPzDbA4EO2rltcmh5KdPZbgGtFMVHJboZ88"/>
+</div>
+<div class="w-2.5 h-2.5 bg-primary rotate-45 -mt-1 shadow-sm"></div>
+</div>
+<div class="absolute top-[48%] left-[52%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer z-20">
+<div class="relative w-16 h-16 rounded-full bg-primary p-1 shadow-2xl z-10 marker-glow">
+<div class="w-full h-full rounded-full border-2 border-white overflow-hidden bg-white">
+<img class="w-full h-full object-cover" data-alt="Golden Retriever dog looking at camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Z6_KOd-mNfYYTVdh4TZmvQR7QUZOsZh-CeyJk6NrUuxeDjYrtMgQqWvgXBQ5OmUX-fEX8nItpKI4NxNYjR4zEXCHbzFE89ZEJPlfBsE1AQtAd3_IMQMWEnP9x8MUyp9-0MDMJNwVBPVHglahIjnMaoaNhNXhCe4CWfnhF1RsKYxADvKlquQ8gQchAJhkjQ83FunPYAGWaoX_kbf5ER5WukU4SPTf0pPDri-GeDSdumn7rZ90DpO_ZAm4CNElnsl-mmx827FcjkQ"/>
+</div>
+</div>
+<div class="mt-2 px-4 py-1.5 bg-primary text-white rounded-full shadow-xl border border-white/20">
+<p class="text-xs font-bold">Max</p>
+</div>
+<div class="absolute top-14 w-4 h-4 bg-primary rotate-45 -z-0"></div>
+</div>
+<div class="absolute top-[58%] right-[28%] flex flex-col items-center transform transition-transform cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-primary shadow-lg p-0.5 overflow-hidden z-10 relative">
+<img class="w-full h-full object-cover rounded-full grayscale-[30%]" data-alt="Colorful parrot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnUCHtoX265YOP5eFu4RU2Pmm9kPRvD6ugc24HYqxqKNWIGWXX5YfRnv7gsBlEgIbdoIvYAmeoWF7M75rEDPSgCAFbISIYgjLqvfymj6PI7G1RcZesSDHQxBJu19oN32dq6BM2PUD8oyvMQmGgdhwWyzulnsK9UGrxUygQ5u7Yvp55D-K0r-AZV99CH6X5W56WYkqEZ4i7XAYKXrvS-TYqGtUFpNP_vCYfTVDIal5RD_Z4vX72LzHIrJhgfl_Y0rLjsNjQGde8h0U"/>
+</div>
+<div class="w-2.5 h-2.5 bg-primary rotate-45 -mt-1 shadow-sm"></div>
+</div>
+<div class="absolute top-[20%] right-[40%] flex flex-col items-center cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-white border-2 border-primary shadow-md flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="absolute top-0 left-0 w-full z-30 flex flex-col gap-4 pt-14 px-5 pb-6">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-12 bg-white/95 backdrop-blur-md shadow-xl shadow-blue-900/5 rounded-2xl flex items-center px-4 border border-blue-50">
+<span class="material-symbols-outlined text-primary">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-slate-800 placeholder:text-slate-400 text-sm font-medium px-2" placeholder="Buscar en el mapa..."/>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-light text-primary">
+<span class="material-symbols-outlined text-xl">tune</span>
+</button>
+</div>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-white px-5 shadow-lg shadow-blue-200">
+<span class="material-symbols-outlined text-[18px]">pets</span>
+<span class="text-sm font-bold">Perros</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white text-primary border border-blue-100 px-5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">cruelty_free</span>
+<span class="text-sm font-semibold">Gatos</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white text-primary border border-blue-100 px-5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">flutter_dash</span>
+<span class="text-sm font-semibold">Aves</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white text-primary border border-blue-100 px-5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+<span class="text-sm font-semibold">Otros</span>
+</button>
+</div>
+</div>
+</div>
+<div class="absolute right-5 top-[35%] z-30 flex flex-col gap-3">
+<div class="flex flex-col bg-white/95 backdrop-blur-md shadow-xl rounded-2xl overflow-hidden border border-blue-50">
+<button class="w-12 h-12 flex items-center justify-center text-primary hover:bg-blue-50 border-b border-blue-50">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center text-primary hover:bg-blue-50">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white shadow-xl text-primary border border-blue-50">
+<span class="material-symbols-outlined">near_me</span>
+</button>
+</div>
+<button class="absolute top-44 right-5 z-30 flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 shadow-lg text-white font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+<span>Reportar</span>
+</button>
+<div class="absolute bottom-[90px] left-0 right-0 z-40 px-5">
+<div class="bg-white rounded-3xl shadow-[0_-10px_40px_rgba(0,86,179,0.08)] border border-blue-50 overflow-hidden">
+<div class="w-full flex justify-center py-3">
+<div class="h-1 w-10 rounded-full bg-blue-100"></div>
+</div>
+<div class="px-6 pb-6 pt-1">
+<div class="flex gap-4 items-center">
+<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary-light">
+<img class="w-full h-full object-cover" data-alt="Golden Retriever dog" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgCRQMW20NGtBIxR3-VNf0tV6Ig_KO_ttOfeGD4n7-MZmdbGxv0NUus_uwzhc8SHwWM0dfsconTyRgjSNW0e_XHrJCkyjCNxcExW4XRsV7n8EtGx2H8HZIOV9O_fGuM-NcEs1ppQbeIfG72MZtKwhqW8wqk1IOXTqcyjT0ItKlkxR5qekp9mhxtnZbWFrfCJsg8XCRPsRkzNw5nX7YsTK2kQQUK3EdUuFsBRSU2nfm1_kyQvrnvr8_06XC-Gom_ehk_xHciBeRx4E"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-xl font-extrabold text-slate-900">Max</h2>
+<p class="text-primary font-bold text-sm">Golden Retriever</p>
+</div>
+<div class="flex items-center gap-1 bg-blue-50 px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[14px]">schedule</span>
+<span class="text-[11px] font-bold text-primary">Hace 2h</span>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">location_on</span>
+<p class="text-slate-600 text-xs font-medium">Parque México, Condesa</p>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 h-12 flex items-center justify-center gap-2 bg-primary text-white rounded-2xl font-bold text-base shadow-lg shadow-blue-100">
+<span class="material-symbols-outlined">chat_bubble</span>
+                    Contactar
+                </button>
+<button class="w-12 h-12 flex items-center justify-center bg-primary-light text-primary rounded-2xl">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="absolute bottom-0 left-0 w-full h-20 bg-white/95 backdrop-blur-md border-t border-blue-50 z-50 flex items-center justify-around px-2 pb-4">
+<button class="flex flex-col items-center gap-1 flex-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">map</span>
+<span class="text-[10px] font-bold">Mapa</span>
+</button>
+<button class="flex flex-col items-center gap-1 flex-1 text-slate-400">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+<span class="text-[10px] font-medium">Lista</span>
+</button>
+<div class="flex-1 flex justify-center">
+<div class="relative -top-8">
+<button class="w-16 h-16 rounded-full bg-primary text-white shadow-2xl shadow-blue-400 flex items-center justify-center ring-4 ring-white">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</div>
+<button class="flex flex-col items-center gap-1 flex-1 text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px] font-medium">Alertas</span>
+</button>
+<button class="flex flex-col items-center gap-1 flex-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</nav>
+
+</body></html>

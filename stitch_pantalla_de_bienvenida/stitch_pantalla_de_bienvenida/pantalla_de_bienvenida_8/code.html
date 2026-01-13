@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetFinder - Mi Perfil</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0066FF",
+                        "brand-blue": "#0052CC",
+                        "background-dark": "#0F172A",
+                        "card-dark": "#1E293B",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: 100dvh;
+            background-color: #0F172A;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="dark bg-background-dark font-display antialiased">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-background-dark text-white overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-background-dark/80 ios-blur px-6 py-4 flex items-center justify-between border-b border-slate-800">
+<h1 class="text-xl font-bold tracking-tight">Mi Perfil</h1>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">settings</span>
+</button>
+</div>
+</header>
+<div class="px-6 pt-6 pb-4">
+<div class="flex items-center gap-6 mb-6">
+<div class="relative">
+<div class="w-24 h-24 rounded-full border-2 border-primary p-1">
+<img alt="Profile" class="w-full h-full rounded-full bg-slate-800 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPZM-WjKY915EePod__0baPubc3CvHVo1JrwlNCK_H16gNjUcXecvVUAZ4ItnDkpNrVA2rwdjbfGOK11dhKz0x9S5wKWz4ll-2mNM4xlCadG-vIb8ytk9SwUskZ8aEF6CF4krJubHt90H7zgD_PvvtM-pVZaG9WUhKk8Jcyha7sT2IjEe9GTBw-vXOrQ96qMnkaJWwpWOkZ_kP0xdOkQFlRHwH7YTZdrL8izr59-6IYRk-uCdDYOza8geOGO7YTqL_koJzV0Q6yq4"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full border-2 border-background-dark">
+<span class="material-symbols-outlined text-sm leading-none block">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<h2 class="text-2xl font-extrabold">Carlos Rivera</h2>
+<p class="text-slate-400 text-sm font-medium mb-3">@carlos_petlover</p>
+<div class="flex gap-4">
+<div class="text-center">
+<span class="block font-bold text-lg leading-none">12</span>
+<span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Reportes</span>
+</div>
+<div class="text-center">
+<span class="block font-bold text-lg leading-none">4</span>
+<span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Rescates</span>
+</div>
+<div class="text-center">
+<span class="block font-bold text-lg leading-none">850</span>
+<span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Karma</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-brand-blue text-white font-bold py-3 rounded-xl transition-all active:scale-[0.98] mb-8">
+                Editar Perfil
+            </button>
+</div>
+<div class="px-6 mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-lg">Mis Medallas</h3>
+<span class="text-primary text-sm font-bold">Ver todas</span>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/20">
+<span class="material-symbols-outlined text-white text-3xl">volunteer_activism</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">Rescatista</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+<span class="material-symbols-outlined text-white text-3xl">military_tech</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">Héroe Local</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2 opacity-50">
+<div class="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center border border-slate-700">
+<span class="material-symbols-outlined text-slate-500 text-3xl">emoji_events</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500">Master</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+<span class="material-symbols-outlined text-white text-3xl">verified</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">Verificado</span>
+</div>
+</div>
+</div>
+<div class="flex border-b border-slate-800 mb-2">
+<button class="flex-1 py-4 border-b-2 border-primary text-primary font-bold text-sm">PUBLICACIONES</button>
+<button class="flex-1 py-4 text-slate-500 font-bold text-sm">GUARDADOS</button>
+</div>
+<div class="grid grid-cols-3 gap-1 px-1 flex-1">
+<div class="aspect-square bg-slate-800 relative group overflow-hidden">
+<img alt="Post 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKz3GrCeUpx-hNyBTgcIAtMdbLu5bvnSU7FeDvalqFIS6Wk1Bs93fi_aMZ4Y5gKUWYdrKPm3XeZh2mGm_C2ZqG8E6IRwSdZlvfP6KmpQdahSCDkUBvzON_lgiPOUlKtgdXo8hg3UgO98ehtpNrp1LbJJJj0c28Eg4LmwJFyEzsXByLnMeFZk41VXD9QhBZHle27DCdLuptM3JUaJ7kfIhtG4iYfO7yxN5f5mVtAKfc4Ckxpenc6k4zEROCSwK9eaZJ-uX7UJpK3Dk"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white text-sm">priority_high</span>
+</div>
+<div class="aspect-square bg-slate-800 relative group overflow-hidden">
+<div class="w-full h-full flex items-center justify-center bg-slate-900 border border-slate-800">
+<span class="material-symbols-outlined text-slate-600 text-3xl">pets</span>
+</div>
+</div>
+<div class="aspect-square bg-slate-800 relative group overflow-hidden">
+<div class="w-full h-full bg-blue-600/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">check_circle</span>
+</div>
+</div>
+<div class="aspect-square bg-slate-800"></div>
+<div class="aspect-square bg-slate-800"></div>
+<div class="aspect-square bg-slate-800"></div>
+<div class="aspect-square bg-slate-800"></div>
+<div class="aspect-square bg-slate-800"></div>
+<div class="aspect-square bg-slate-800"></div>
+</div>
+<nav class="sticky bottom-0 w-full bg-background-dark/90 ios-blur border-t border-slate-800 px-8 py-3 pb-8 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="relative -top-6">
+<button class="bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-blue-600/40 ring-4 ring-background-dark">
+<span class="material-symbols-outlined text-white text-3xl">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">person</span>
+</button>
+</nav>
+<div class="h-4 bg-background-dark"></div>
+</div>
+
+</body></html>

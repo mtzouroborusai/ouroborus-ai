@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard - Pet Finder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0F172A", // Navy Blue
+                        "secondary": "#3B82F6", // Light Blue
+                        "accent": "#60A5FA", // Very Light Blue
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#020617",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E293B",
+                        "text-main-light": "#0F172A",
+                        "text-main-dark": "#F1F5F9",
+                        "text-secondary-light": "#64748B",
+                        "text-secondary-dark": "#94A3B8",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-text-main-light dark:text-text-main-dark overflow-x-hidden">
+<header class="flex items-center justify-between p-4 sticky top-0 z-10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-11 ring-2 ring-secondary/20" data-alt="Portrait of admin user Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABAshZIqNJ9AsrAoivTYV_SvufqwVTak7tP8sZhfwhElPMy6tGQek3mvsAz8M_0WladUjYIeg17m-l1iFj_jdgYIxQWFakt8uT9I4rlB6E3e-20lnh1-WDw_NcDV21uSlprmGl58yLthG5huqwDlLvbRgnlU34GfPYDq1TfIwGzt3VQlouOKo32dpEBO-339YqhUjwseVj_PuH3llly5oPf7AtwF6b-FMiyJqvl0DLDYv8sDbP00vDnyKQr-hbfpCk1JSTwdVpDOI");'>
+</div>
+<div class="absolute bottom-0.5 right-0.5 size-3 bg-green-500 rounded-full border-2 border-white dark:border-background-dark"></div>
+</div>
+<div>
+<h2 class="text-xs font-semibold uppercase tracking-wider text-text-secondary-light dark:text-text-secondary-dark">Administrator</h2>
+<h1 class="text-lg font-extrabold leading-tight text-primary dark:text-white">Sarah Admin</h1>
+</div>
+</div>
+<button class="relative flex size-10 items-center justify-center rounded-full bg-white dark:bg-card-dark shadow-sm border border-slate-200 dark:border-slate-700 text-primary dark:text-white transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 24px;">notifications</span>
+<span class="absolute top-2 right-2.5 size-2 bg-secondary rounded-full"></span>
+</button>
+</header>
+<main class="flex flex-col gap-6 p-4 pb-28">
+<section class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-3 rounded-2xl p-4 bg-card-light dark:bg-card-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-xl text-secondary">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="flex items-center text-[10px] font-bold text-secondary gap-0.5 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-full uppercase">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                    5%
+                </span>
+</div>
+<div>
+<p class="text-sm font-semibold text-text-secondary-light dark:text-text-secondary-dark">Lost Pets</p>
+<p class="text-2xl font-extrabold text-primary dark:text-white">1,240</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-2xl p-4 bg-card-light dark:bg-card-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-primary dark:text-accent">
+<span class="material-symbols-outlined">group</span>
+</div>
+<span class="flex items-center text-[10px] font-bold text-secondary gap-0.5 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-full uppercase">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                    12%
+                </span>
+</div>
+<div>
+<p class="text-sm font-semibold text-text-secondary-light dark:text-text-secondary-dark">Active Users</p>
+<p class="text-2xl font-extrabold text-primary dark:text-white">8,500</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-2xl p-5 bg-gradient-to-br from-primary to-slate-800 text-white shadow-xl shadow-primary/10 col-span-2">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-white/10 rounded-xl backdrop-blur-md">
+<span class="material-symbols-outlined text-white">volunteer_activism</span>
+</div>
+<div>
+<p class="text-xs font-bold text-accent uppercase tracking-widest">Reunited</p>
+<p class="text-3xl font-extrabold tracking-tight">320</p>
+</div>
+</div>
+<div class="text-right">
+<span class="bg-secondary/40 backdrop-blur-sm px-2.5 py-1 rounded-lg text-[10px] font-bold border border-white/20 uppercase">+8% WEEKLY</span>
+</div>
+</div>
+<div class="flex items-end justify-between h-12 w-full gap-1.5 px-2">
+<div class="flex-1 bg-white/20 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-white/20 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-white/20 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-white/20 h-[85%] rounded-t-sm"></div>
+<div class="flex-1 bg-white/20 h-[50%] rounded-t-sm"></div>
+<div class="flex-1 bg-white/20 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary h-[100%] rounded-t-sm shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-2xl p-4 bg-white dark:bg-card-dark shadow-sm border border-slate-100 dark:border-slate-800 col-span-2">
+<div class="flex justify-between items-center">
+<div class="flex gap-3 items-center">
+<div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-primary dark:text-white">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-text-secondary-light dark:text-text-secondary-dark">Total Reports</p>
+<p class="text-xl font-extrabold text-primary dark:text-white">1,560</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-text-secondary-light dark:text-text-secondary-dark mb-1 uppercase tracking-tight">Pending Approval</p>
+<span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-black">15</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="text-base font-extrabold text-primary dark:text-white">Quick Actions</h3>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+<button class="flex flex-col items-center justify-center min-w-[100px] gap-2 p-4 rounded-2xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800 shadow-sm active:scale-95 transition-all">
+<div class="p-3 rounded-full bg-blue-50 dark:bg-slate-700 text-secondary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<span class="text-[11px] font-bold text-center text-primary dark:text-white">Verify User</span>
+</button>
+<button class="flex flex-col items-center justify-center min-w-[100px] gap-2 p-4 rounded-2xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800 shadow-sm active:scale-95 transition-all">
+<div class="p-3 rounded-full bg-slate-100 dark:bg-slate-700 text-primary dark:text-white">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<span class="text-[11px] font-bold text-center text-primary dark:text-white">Global Alert</span>
+</button>
+<button class="flex flex-col items-center justify-center min-w-[100px] gap-2 p-4 rounded-2xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800 shadow-sm active:scale-95 transition-all">
+<div class="p-3 rounded-full bg-blue-50 dark:bg-slate-700 text-secondary">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<span class="text-[11px] font-bold text-center text-primary dark:text-white">Moderators</span>
+</button>
+<button class="flex flex-col items-center justify-center min-w-[100px] gap-2 p-4 rounded-2xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800 shadow-sm active:scale-95 transition-all">
+<div class="p-3 rounded-full bg-slate-100 dark:bg-slate-700 text-primary dark:text-white">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="text-[11px] font-bold text-center text-primary dark:text-white">Analytics</span>
+</button>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="text-base font-extrabold text-primary dark:text-white">Needs Review</h3>
+<a class="text-xs font-bold text-secondary hover:underline" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex gap-4 p-4 rounded-2xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1 h-full bg-secondary"></div>
+<div class="relative shrink-0 w-20 h-20">
+<div class="w-full h-full rounded-xl bg-cover bg-center shadow-inner" data-alt="Golden Retriever dog standing in park" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg7xUepK1cwjfK3tVVPW97ScyMDUcx5nn01hBtaasw4o4bIaGBA1P6c7a5NxPWEtkQksvK0VmyVNEHPWa_5kZFizRnQaTbYZPwS_Y7Ww7gsWfMTvTj9ZgJv4l_QukJWcq7Ok_qIigWzkwAEAaqIxIeiTT2aXCmspAgRm6y2tOp0IvF2qz7bZwckq__jkPaHoc1G-Bgldo6Vf2dwHJZ8lYpmt1Ir1FGWwFA7_zwfoTVNkBk7xIWjwWAq5AMmT9tI7V31v30uCow4uA");'></div>
+<div class="absolute -top-2 -right-2 bg-secondary text-white text-[9px] font-black px-2 py-0.5 rounded-full border-2 border-white dark:border-card-dark shadow-sm">URGENT</div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-extrabold text-primary dark:text-white text-base leading-tight">Golden Retriever</h4>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+                            Downtown Area
+                        </p>
+</div>
+<div class="flex gap-2 mt-3">
+<button class="flex-1 bg-primary dark:bg-secondary text-white text-[11px] font-bold py-2 rounded-lg hover:opacity-90 transition-opacity">Approve Report</button>
+<button class="w-10 flex items-center justify-center bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-2xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800 shadow-sm opacity-60">
+<div class="relative shrink-0 w-20 h-20">
+<div class="w-full h-full rounded-xl bg-cover bg-center grayscale" data-alt="Siamese cat looking at camera" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbnjHRpwOwrGtSZXajHO08keio4I2zkYhHLXFg7pOVI8-DsChqwoPck0vdOiURuyu_MYFLGUBv40bO8ZbzW_ImEYwhkVJNlalgfX0XCwu3RTQ7nLaM1OtFHdRSsj77ruxV_nK8f_CMbAHXsOmqdiNgNyhY6FOB-frSTVhmYB0UQRvzpPFrOZBwZ6aBIyLIFbRgZmxPsNiew5jWpDeru1hp55DbK2McqViu8YBTNPfj0syA7CrS4apgyay2UhjPNYhvW8IvYLxpOIk");'></div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-extrabold text-primary dark:text-white text-base leading-tight">Siamese Cat</h4>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                            North District
+                        </p>
+</div>
+<div class="flex gap-2 mt-3">
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-400 text-[11px] font-bold py-2 rounded-lg cursor-not-allowed">In Review...</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="text-base font-extrabold text-primary dark:text-white">Activity Log</h3>
+</div>
+<div class="flex flex-col rounded-2xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800 shadow-sm divide-y divide-slate-50 dark:divide-slate-800">
+<div class="flex items-start gap-3 p-4">
+<div class="relative mt-1">
+<div class="bg-cover bg-center size-9 rounded-full ring-2 ring-blue-50 dark:ring-slate-700" data-alt="User profile picture of John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAClsaIcUsXM8_3zmWMXSfAOAAFlUQgQTnR6H-5o8WCm45soX6eEtOKCb_GVYL4hphbpPXVTev5E2Mm5l7CdUBxewBs3M-_x-kkU_khcJItitfL3orVwQywKMeshXddJOJfZIgXLvyn7MMSNCrF82MNYIPvpWt79NTr61UF_wf1BSbDuJBHax6xQlZCvZkvgtIv1e15xecDIMqglAIAB8WEJGZ20nqFO4q46zXijOhrUjQt8OepmPgx_M8DwK2_Aqf1jI07I9QYOi4");'></div>
+<div class="absolute -bottom-1 -right-1 bg-secondary size-4 rounded-full border-2 border-white dark:border-card-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[8px] text-white font-bold">add</span>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-sm text-text-main-light dark:text-text-main-dark">
+<span class="font-bold text-primary dark:text-white">@john_doe</span> submitted a new lost pet report.
+                    </p>
+<p class="text-[11px] font-semibold text-text-secondary-light dark:text-text-secondary-dark mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                        2 mins ago
+                    </p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4">
+<div class="relative mt-1">
+<div class="bg-primary dark:bg-slate-800 size-9 rounded-full flex items-center justify-center text-white ring-2 ring-blue-50 dark:ring-slate-700">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-sm text-text-main-light dark:text-text-main-dark">
+                        Report <span class="font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded text-xs font-bold">#1290</span> marked as <span class="text-secondary font-black uppercase text-[11px]">Resolved</span>.
+                    </p>
+<p class="text-[11px] font-semibold text-text-secondary-light dark:text-text-secondary-dark mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                        15 mins ago
+                    </p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4">
+<div class="relative mt-1">
+<div class="bg-cover bg-center size-9 rounded-full ring-2 ring-blue-50 dark:ring-slate-700" data-alt="User profile picture of Moderator Alice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbLvRDEXxJj-ow7J_iJToaMUkD55cVnLH6sgv80NaJfe06V0oGYqIEGM8zA1fQGVy_EqY8v4ct9EsUydbhY16Kw7aa_aQSXtCCMmkjnVpf8yRxRwVcIuiEZ6O2mbrFecRUZXGFwifkBmj1dagXeK54KCIM0ThJYISVDjaovbZt1MH5vgAA8eEGbd5VQgj7MFAm-G9DDa7N5rZD5w0PVRIKKlXpHI5SyT3vG_bUp17AeOy0ooYBdH5_CMru9mIKQLct3oA1I96AdJ4");'></div>
+<div class="absolute -bottom-1 -right-1 bg-primary size-4 rounded-full border-2 border-white dark:border-card-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[8px] text-white font-bold">gavel</span>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-sm text-text-main-light dark:text-text-main-dark">
+<span class="font-bold text-primary dark:text-white">Mod Alice</span> restricted user <span class="text-primary dark:text-accent font-bold">@spammer_01</span>.
+                    </p>
+<p class="text-[11px] font-semibold text-text-secondary-light dark:text-text-secondary-dark mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                        1 hour ago
+                    </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-card-dark border-t border-slate-100 dark:border-slate-800 pb-safe z-50">
+<div class="flex justify-around items-center h-16 max-w-md mx-auto">
+<button class="flex flex-col items-center justify-center w-full h-full text-secondary gap-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-extrabold uppercase tracking-tighter">Panel</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-text-secondary-light dark:text-text-secondary-dark hover:text-secondary transition-colors gap-1">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Users</span>
+</button>
+<button class="relative flex flex-col items-center justify-center w-full h-full text-text-secondary-light dark:text-text-secondary-dark hover:text-secondary transition-colors gap-1">
+<div class="absolute top-3 right-7 size-2 bg-secondary rounded-full"></div>
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Reports</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-text-secondary-light dark:text-text-secondary-dark hover:text-secondary transition-colors gap-1">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Admin</span>
+</button>
+</div>
+</nav>
+
+</body></html>

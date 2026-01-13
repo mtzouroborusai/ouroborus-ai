@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetFinder - Mapa (Modo Oscuro)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0066FF",
+                        "map-dark": "#0B0E14",
+                        "card-dark": "#1E293B",
+                        "accent-blue": "#38BDF8",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .map-bg {
+            background-color: #0B0E14;
+            background-image: 
+                radial-gradient(circle at 50% 50%, #1e293b 1px, transparent 1px),
+                linear-gradient(to right, #111827 1px, transparent 1px),
+                linear-gradient(to bottom, #111827 1px, transparent 1px);
+            background-size: 40px 40px, 100px 100px, 100px 100px;
+        }
+        .pulse-glow {
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.6);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black font-display antialiased overflow-hidden">
+<div class="relative flex h-[100dvh] w-full max-w-md mx-auto shadow-2xl overflow-hidden bg-map-dark">
+<div class="absolute inset-0 map-bg">
+<div class="absolute top-1/4 left-0 w-full h-4 bg-slate-900/50 -rotate-12"></div>
+<div class="absolute top-0 left-1/3 w-6 h-full bg-slate-900/50 rotate-6"></div>
+<div class="absolute top-[40%] right-10 w-32 h-32 bg-emerald-950/20 rounded-full blur-2xl"></div>
+<div class="absolute top-[35%] left-[25%] flex flex-col items-center">
+<div class="relative">
+<div class="absolute inset-0 bg-primary/40 rounded-full animate-ping"></div>
+<div class="relative bg-primary p-2 rounded-full border-2 border-white/20 shadow-lg pulse-glow">
+<span class="material-symbols-outlined text-white text-base block">pets</span>
+</div>
+</div>
+<div class="mt-1 bg-card-dark/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-bold border border-white/10">Luna</div>
+</div>
+<div class="absolute top-[55%] right-[20%] flex flex-col items-center">
+<div class="bg-primary p-2 rounded-full border-2 border-white/20 shadow-lg pulse-glow">
+<span class="material-symbols-outlined text-white text-base block">pets</span>
+</div>
+<div class="mt-1 bg-card-dark/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-bold border border-white/10">Max</div>
+</div>
+<div class="absolute top-[20%] right-[30%] flex flex-col items-center">
+<div class="bg-slate-700 p-2 rounded-full border-2 border-white/10 shadow-lg">
+<span class="material-symbols-outlined text-white/50 text-base block">pets</span>
+</div>
+</div>
+</div>
+<div class="absolute top-0 left-0 right-0 p-5 z-20 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="flex-1 bg-card-dark/90 backdrop-blur-md border border-white/10 rounded-2xl h-12 flex items-center px-4 shadow-xl">
+<span class="material-symbols-outlined text-slate-400 mr-2">search</span>
+<input class="bg-transparent border-none text-white text-sm focus:ring-0 p-0 w-full placeholder:text-slate-500" placeholder="Buscar en el mapa..." type="text"/>
+</div>
+<button class="w-12 h-12 bg-card-dark/90 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center shadow-xl text-white">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap bg-primary text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+<span class="material-symbols-outlined text-sm">location_on</span> Cerca de mí
+                </button>
+<button class="whitespace-nowrap bg-card-dark/90 backdrop-blur-md text-slate-300 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold">
+                    Perros
+                </button>
+<button class="whitespace-nowrap bg-card-dark/90 backdrop-blur-md text-slate-300 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold">
+                    Gatos
+                </button>
+<button class="whitespace-nowrap bg-card-dark/90 backdrop-blur-md text-slate-300 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold">
+                    Vistos hoy
+                </button>
+</div>
+</div>
+<div class="absolute right-5 bottom-36 z-20 flex flex-col gap-3">
+<button class="w-12 h-12 bg-card-dark/95 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center shadow-xl text-white">
+<span class="material-symbols-outlined">layers</span>
+</button>
+<button class="w-12 h-12 bg-card-dark/95 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center shadow-xl text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">my_location</span>
+</button>
+</div>
+<div class="absolute bottom-6 left-5 right-5 z-20">
+<div class="bg-card-dark/95 backdrop-blur-xl rounded-[2rem] border border-white/10 p-4 shadow-2xl flex gap-4 items-center">
+<div class="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-slate-800">
+<img alt="Pet" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKz3GrCeUpx-hNyBTgcIAtMdbLu5bvnSU7FeDvalqFIS6Wk1Bs93fi_aMZ4Y5gKUWYdrKPm3XeZh2mGm_C2ZqG8E6IRwSdZlvfP6KmpQdahSCDkUBvzON_lgiPOUlKtgdXo8hg3UgO98ehtpNrp1LbJJJj0c28Eg4LmwJFyEzsXByLnMeFZk41VXD9QhBZHle27DCdLuptM3JUaJ7kfIhtG4iYfO7yxN5f5mVtAKfc4Ckxpenc6k4zEROCSwK9eaZJ-uX7UJpK3Dk"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Perdido • 2km</span>
+<span class="material-symbols-outlined text-slate-500 text-lg">bookmark</span>
+</div>
+<h3 class="text-white font-bold text-lg leading-tight">Luna</h3>
+<p class="text-slate-400 text-xs mt-1">Golden Retriever • Hace 2 horas</p>
+<div class="mt-3 flex gap-2">
+<button class="flex-1 bg-primary text-white text-xs font-bold py-2.5 rounded-xl">Contactar</button>
+<button class="px-3 bg-slate-800 text-white rounded-xl border border-white/5">
+<span class="material-symbols-outlined text-sm">directions</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-white/20 rounded-full z-30"></div>
+</div>
+
+</body></html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetFinder - Publicar Mascota</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0066FF",
+                        "brand-blue": "#0052CC",
+                        "dark-field": "#1E293B",
+                        "background-dark": "#0F172A",
+                        "border-blue": "#3B82F6",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display antialiased text-white">
+<div class="flex flex-col h-screen w-full max-w-md mx-auto bg-background-dark shadow-2xl relative">
+<div class="flex items-center justify-between px-6 pt-12 pb-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-dark-field border border-slate-700">
+<span class="material-symbols-outlined text-white">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold">Publicar Reporte</h1>
+<div class="w-10"></div>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar px-6 pb-24">
+<div class="mt-4 space-y-6">
+<div class="w-full aspect-video bg-dark-field rounded-2xl border-2 border-dashed border-border-blue/50 flex flex-col items-center justify-center gap-2 group cursor-pointer active:scale-[0.98] transition-all">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">add_a_photo</span>
+</div>
+<span class="text-sm font-semibold text-border-blue">Subir fotos de la mascota</span>
+<span class="text-[11px] text-slate-400">Máximo 5 fotos</span>
+</div>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-300 ml-1">Nombre de la mascota</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">pets</span>
+<input class="w-full h-14 bg-dark-field border-border-blue/30 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl pl-12 pr-4 text-white placeholder-slate-500 transition-all" placeholder="Ej: Max" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-300 ml-1">Tipo de reporte</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="h-12 rounded-xl bg-primary flex items-center justify-center gap-2 font-bold shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">search</span>
+                                Perdido
+                            </button>
+<button class="h-12 rounded-xl bg-dark-field border border-slate-700 flex items-center justify-center gap-2 font-bold text-slate-400">
+<span class="material-symbols-outlined text-sm">front_hand</span>
+                                Encontrado
+                            </button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-300 ml-1">Última ubicación vista</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">location_on</span>
+<input class="w-full h-14 bg-dark-field border-border-blue/30 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl pl-12 pr-4 text-white placeholder-slate-500 transition-all" placeholder="Ej: Av. Santa Fe, Palermo" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-300 ml-1">Descripción detallada</label>
+<textarea class="w-full bg-dark-field border-border-blue/30 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl p-4 text-white placeholder-slate-500 transition-all resize-none" placeholder="Describe señas particulares, color de collar, comportamiento..." rows="4"></textarea>
+</div>
+<div class="bg-dark-field border border-slate-700 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-500 text-xl">call</span>
+</div>
+<div>
+<p class="text-sm font-bold">Mostrar mi teléfono</p>
+<p class="text-[11px] text-slate-400">Permitir contacto directo</p>
+</div>
+</div>
+<div class="w-12 h-6 bg-primary rounded-full relative p-1 cursor-pointer">
+<div class="w-4 h-4 bg-white rounded-full absolute right-1"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background-dark via-background-dark to-transparent pt-10">
+<button class="w-full bg-primary hover:bg-brand-blue active:scale-[0.98] transition-all text-white font-bold text-lg h-14 rounded-2xl flex items-center justify-center shadow-xl shadow-primary/25">
+                Publicar Ahora
+            </button>
+</div>
+</div>
+
+</body></html>

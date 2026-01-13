@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetFinder - Bienvenida (Dark Mode)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0066FF",
+                        "brand-dark": "#0A0A0A",
+                        "surface-dark": "#161616",
+                        "accent-blue": "#3B82F6",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-brand-dark text-white;
+            }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        :root {
+            --brand-primary: #0066FF;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display antialiased">
+<div class="relative flex h-screen w-full flex-col justify-between max-w-md mx-auto overflow-hidden bg-brand-dark">
+<div class="flex items-center p-6 pt-10 pb-4 justify-center w-full z-10">
+<div class="flex items-center gap-2">
+<div class="bg-primary/10 p-2 rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl font-bold">pets</span>
+</div>
+<h2 class="text-white text-2xl font-extrabold tracking-tight">PetFinder</h2>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center items-center px-6 relative w-full">
+<div class="w-full relative aspect-[4/5] max-h-[45vh] mb-10 rounded-[2.5rem] overflow-hidden group border border-white/5">
+<div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent z-10 opacity-60"></div>
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transition-transform duration-1000 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKz3GrCeUpx-hNyBTgcIAtMdbLu5bvnSU7FeDvalqFIS6Wk1Bs93fi_aMZ4Y5gKUWYdrKPm3XeZh2mGm_C2ZqG8E6IRwSdZlvfP6KmpQdahSCDkUBvzON_lgiPOUlKtgdXo8hg3UgO98ehtpNrp1LbJJJj0c28Eg4LmwJFyEzsXByLnMeFZk41VXD9QhBZHle27DCdLuptM3JUaJ7kfIhtG4iYfO7yxN5f5mVtAKfc4Ckxpenc6k4zEROCSwK9eaZJ-uX7UJpK3Dk");'>
+</div>
+<div class="absolute bottom-6 left-6 right-6 z-20">
+<div class="bg-surface-dark/80 backdrop-blur-xl p-4 rounded-2xl border border-white/10 flex items-center gap-4 shadow-2xl">
+<div class="bg-primary/20 p-2.5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+</div>
+<div>
+<p class="text-[10px] text-primary font-bold uppercase tracking-[0.15em]">Seguridad Activa</p>
+<p class="text-sm text-white font-medium leading-tight">Red de confianza verificada</p>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center w-full space-y-6">
+<div class="flex flex-col gap-4">
+<h1 class="text-white text-4xl font-extrabold leading-[1.1] tracking-tight">
+                        Vuelve a estar <br/>
+<span class="text-primary">siempre juntos</span>
+</h1>
+<p class="text-zinc-400 text-base font-medium leading-relaxed max-w-[300px] mx-auto">
+                        Únete a la mayor red de búsqueda de mascotas. Reporta, difunde y recupera a tu compañero.
+                    </p>
+</div>
+<div class="flex w-full flex-row items-center justify-center gap-2 py-2">
+<div class="h-1.5 w-10 rounded-full bg-primary transition-all duration-300"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-zinc-800"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-zinc-800"></div>
+</div>
+</div>
+</div>
+<div class="w-full p-6 pb-14 flex flex-col gap-4 z-10">
+<button class="w-full bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all text-white font-bold text-lg h-16 rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgb(0,102,255,0.2)]">
+                Empezar ahora
+            </button>
+<button class="w-full bg-transparent hover:bg-white/5 active:scale-[0.98] transition-all text-zinc-300 font-semibold text-base h-16 rounded-2xl flex items-center justify-center border border-white/10">
+                ¿Ya tienes cuenta? <span class="text-primary font-bold ml-1.5">Inicia sesión</span>
+</button>
+<div class="mt-2 flex justify-center">
+<div class="w-32 h-1 bg-zinc-800 rounded-full"></div>
+</div>
+</div>
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+</div>
+
+</body></html>

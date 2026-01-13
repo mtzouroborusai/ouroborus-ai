@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publicar Mascota Perdida</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007AFF", // Classic iOS Blue
+                        "background-light": "#F2F2F7", // iOS System Background
+                        "surface-light": "#FFFFFF",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "system-ui", "-apple-system", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "10px",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-light font-display text-[#1C1C1E];
+            }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen relative pb-32">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
+<div class="flex items-center justify-between p-4 h-14">
+<button class="w-20 text-left text-primary text-[17px] font-normal hover:opacity-70 transition-opacity">
+                Cancelar
+            </button>
+<h2 class="text-[17px] font-semibold leading-tight text-center flex-1">Publicar Mascota</h2>
+<div class="w-20"></div>
+</div>
+</header>
+<main class="w-full max-w-md mx-auto flex flex-col gap-6 pt-6">
+<section class="flex flex-col gap-3">
+<div class="px-5 flex justify-between items-baseline">
+<h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Fotos de la mascota</h3>
+<span class="text-xs font-medium text-gray-400">Hasta 5 fotos</span>
+</div>
+<div class="w-full overflow-x-auto no-scrollbar pl-5 pb-2">
+<div class="flex gap-3 pr-5">
+<button class="shrink-0 w-28 h-28 rounded-xl border border-gray-200 bg-white flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-all shadow-sm">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">add_a_photo</span>
+</div>
+<span class="text-[11px] font-semibold text-primary">Añadir</span>
+</button>
+<div class="shrink-0 w-28 h-28 rounded-xl bg-gray-100 relative overflow-hidden group shadow-sm">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCeDxjxUv_2drR8pBzWJNOTBcWPkExyHjSJrEh_9O7x4BrQ49T97Il9U1dq06NeZa3A9b6N9K_xLj475tiWk9oEwu3z4PvD4PjRWrwDGkRCvttMHQnqy2uuwbJVSO73nq0fLgZD6oXOYLdFOT-Wwj7d0Vrpzk3laiXtx5Pa2Rnky_dGFnIqptT3a0Ej46CqH9NFQ4p3coyCs8JsA9D3DUu2MlAqZ0gPyHVbxjsW2n3gWKF4GZYurzU4isHjr-eMznsVVEVYWElaL8Q");'></div>
+<button class="absolute top-1 right-1 bg-black/40 text-white rounded-full p-1 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="shrink-0 w-28 h-28 rounded-xl bg-gray-100 relative overflow-hidden group shadow-sm">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDfHwo8YLDKakBy8YaQGqTUvY8X52QGldbFJ-ZsO7st4r7_hyejDEOSyf2BMBatQvrLgIZuMQYnNbno88PdU9i0aOTD7Vl6i8wqScfwjB7bVVZXV5ZdSYTvoVzEhLOsSbmtm5Bkh183WYkG8gjqaphJuZVWWWZBm8dG7_D1qiH6rCnNys9Nr1bb5I_MUM7UIKfJLxvqQwTxRJWNH3-EwGIWH_JkzYFFf6U8dsFDPbNrRwFzfnlNNFLWgqu_CIR293aQNmoFB_CWlOM");'></div>
+<button class="absolute top-1 right-1 bg-black/40 text-white rounded-full p-1 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-1 px-5">
+<h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Información General</h3>
+<div class="bg-white rounded-xl overflow-hidden border border-gray-100 divide-y divide-gray-100 shadow-sm">
+<div class="flex items-center px-4 py-3">
+<span class="text-[15px] font-medium text-gray-700 w-24">Nombre</span>
+<input class="flex-1 border-none focus:ring-0 p-0 text-[15px] placeholder:text-gray-300" placeholder="Nombre de la mascota" type="text"/>
+</div>
+<div class="flex items-center px-4 py-2">
+<span class="text-[15px] font-medium text-gray-700 w-24">Tipo</span>
+<div class="flex-1 flex gap-1 bg-gray-100 p-1 rounded-lg">
+<button class="flex-1 py-1 rounded-md bg-white text-[13px] font-semibold text-primary shadow-sm">Perro</button>
+<button class="flex-1 py-1 rounded-md text-[13px] font-medium text-gray-500">Gato</button>
+<button class="flex-1 py-1 rounded-md text-[13px] font-medium text-gray-500">Otro</button>
+</div>
+</div>
+<div class="flex items-center px-4 py-3">
+<span class="text-[15px] font-medium text-gray-700 w-24">Raza</span>
+<input class="flex-1 border-none focus:ring-0 p-0 text-[15px] placeholder:text-gray-300" placeholder="Ej. Golden Retriever" type="text"/>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Descripción y señas</h3>
+<div class="bg-white rounded-xl border border-gray-100 shadow-sm">
+<textarea class="w-full border-none focus:ring-0 p-4 text-[15px] placeholder:text-gray-300 resize-none h-32 rounded-xl" placeholder="Describe color de collar, cicatrices, comportamiento..."></textarea>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-2 px-5">
+<h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Última Ubicación</h3>
+<div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+<div class="relative w-full aspect-[2/1] bg-gray-50">
+<div class="absolute inset-0 bg-cover bg-center opacity-80" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVznwJvD5LL3Quvd3u7vzx2MFBOfJVYicxbyCtUykdhguedmJpJeCjBZcO53ET54vwv2aiYt9VkhJb075tkHdSbv4htQQiUmHGamfByETtyRwv7PSW8ruFFwQCLPbqIVaGHq_7FzCsQ13KOaI7ctnh5dGIIP0EirS2rrNpHRQbdleWOHh6sKVm23ALziJw0M3EqcKU2wj3N2XUzOgliWNU9ysxDsERCJIK35PzRW5aGQPnKPvvNrM27hBa3o3wjWkrF7JHFRvnOZc");'></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-[40px] text-primary">location_on</span>
+</div>
+<button class="absolute bottom-3 right-3 bg-white/90 backdrop-blur shadow-lg text-[13px] font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 active:scale-95 transition-transform text-primary border border-gray-100">
+<span class="material-symbols-outlined text-sm">edit_location</span>
+                        Ajustar Mapa
+                    </button>
+</div>
+<div class="p-4 flex items-center justify-between border-t border-gray-50">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[14px] font-semibold">Hoy, 14:30 PM</span>
+<span class="text-[11px] text-gray-400">Fecha del avistamiento</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-300">chevron_right</span>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-2 px-5 mb-10">
+<h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Contacto del dueño</h3>
+<div class="bg-white rounded-xl border border-gray-100 divide-y divide-gray-100 shadow-sm">
+<div class="flex items-center px-4 py-3">
+<span class="material-symbols-outlined text-gray-400 mr-3 text-[20px]">call</span>
+<input class="flex-1 border-none focus:ring-0 p-0 text-[15px] text-gray-900" placeholder="Número de contacto" type="tel" value="+52 55 8921 3340"/>
+</div>
+<div class="flex items-center justify-between px-4 py-3">
+<span class="text-[15px] text-gray-700">Mostrar número público</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<p class="px-2 text-[11px] text-gray-400 leading-tight">Tu número será visible en la ficha de búsqueda para que las personas que encuentren a tu mascota puedan llamarte directamente.</p>
+</section>
+</main>
+<div class="fixed bottom-0 left-0 w-full px-5 py-6 bg-white/80 backdrop-blur-xl border-t border-gray-100 z-40">
+<button class="w-full bg-primary hover:bg-blue-600 text-white text-[17px] font-bold h-14 rounded-2xl shadow-xl shadow-blue-500/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[24px]">campaign</span>
+            Publicar Alerta
+        </button>
+</div>
+
+</body></html>

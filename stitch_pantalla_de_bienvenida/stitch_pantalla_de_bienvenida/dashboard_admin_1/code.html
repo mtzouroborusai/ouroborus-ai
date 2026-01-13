@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat de Rescate - Azul y Blanco</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007AFF",
+                        "primary-dark": "#0056B3",
+                        "background-light": "#F2F2F7",
+                        "background-dark": "#000000",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1C1C1E",
+                        "text-main-light": "#000000",
+                        "text-main-dark": "#FFFFFF",
+                        "text-secondary-light": "#8E8E93",
+                        "text-secondary-dark": "#98989D",
+                        "bubble-user": "#007AFF",
+                        "bubble-other": "#E9E9EB"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.25rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-light dark:bg-background-dark font-display text-text-main-light dark:text-text-main-dark;
+                min-height: 100dvh;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        .pt-safe {
+            padding-top: env(safe-area-inset-top, 0px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col overflow-hidden">
+<header class="pt-safe flex items-center justify-between p-4 sticky top-0 z-20 bg-white/80 dark:bg-card-dark/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center -ml-2 p-2 rounded-full active:bg-gray-100 dark:active:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-primary font-bold">arrow_back_ios_new</span>
+</button>
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-1 ring-black/5" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbLvRDEXxJj-ow7J_iJToaMUkD55cVnLH6sgv80NaJfe06V0oGYqIEGM8zA1fQGVy_EqY8v4ct9EsUydbhY16Kw7aa_aQSXtCCMmkjnVpf8yRxRwVcIuiEZ6O2mbrFecRUZXGFwifkBmj1dagXeK54KCIM0ThJYISVDjaovbZt1MH5vgAA8eEGbd5VQgj7MFAm-G9DDa7N5rZD5w0PVRIKKlXpHI5SyT3vG_bUp17AeOy0ooYBdH5_CMru9mIKQLct3oA1I96AdJ4");'></div>
+<div class="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full border-2 border-white dark:border-card-dark"></div>
+</div>
+<div>
+<h1 class="text-[15px] font-bold leading-tight">Carlos Ruiz</h1>
+<p class="text-[11px] font-medium text-primary uppercase tracking-tight">Visto: Golden Retriever</p>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="flex size-10 items-center justify-center rounded-full text-primary active:bg-gray-100 dark:active:bg-gray-800">
+<span class="material-symbols-outlined" style="font-size: 24px;">call</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full text-primary active:bg-gray-100 dark:active:bg-gray-800">
+<span class="material-symbols-outlined" style="font-size: 24px;">videocam</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
+<div class="flex justify-center my-2">
+<span class="px-3 py-1 bg-gray-200/50 dark:bg-gray-800/50 text-text-secondary-light dark:text-text-secondary-dark text-[11px] font-semibold rounded-full uppercase tracking-tight">Hoy, 10:45 AM</span>
+</div>
+<div class="flex flex-col gap-1 items-start max-w-[80%] animate-in fade-in slide-in-from-left-4 duration-300">
+<div class="bg-bubble-other dark:bg-gray-800 text-text-main-light dark:text-text-main-dark px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm">
+<p class="text-[15px] leading-snug">Hola Sarah, acabo de ver un Golden Retriever cerca del parque central. Se parece mucho al de tu anuncio.</p>
+</div>
+<span class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark ml-1">10:45 AM</span>
+</div>
+<div class="flex flex-col gap-1 items-start max-w-[80%]">
+<div class="bg-bubble-other dark:bg-gray-800 p-1 rounded-2xl rounded-tl-none shadow-sm">
+<div class="w-64 h-48 rounded-xl bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg7xUepK1cwjfK3tVVPW97ScyMDUcx5nn01hBtaasw4o4bIaGBA1P6c7a5NxPWEtkQksvK0VmyVNEHPWa_5kZFizRnQaTbYZPwS_Y7Ww7gsWfMTvTj9ZgJv4l_QukJWcq7Ok_qIigWzkwAEAaqIxIeiTT2aXCmspAgRm6y2tOp0IvF2qz7bZwckq__jkPaHoc1G-Bgldo6Vf2dwHJZ8lYpmt1Ir1FGWwFA7_zwfoTVNkBk7xIWjwWAq5AMmT9tI7V31v30uCow4uA");'></div>
+<div class="px-2 py-2">
+<p class="text-[13px] opacity-90">"Estaba bebiendo agua en la fuente"</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 items-end self-end max-w-[80%] animate-in fade-in slide-in-from-right-4 duration-300">
+<div class="bg-primary text-white px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm">
+<p class="text-[15px] leading-snug font-medium">¡Dios mío! Sí, parece ser "Cooper". ¿Sigue ahí? Voy para allá ahora mismo.</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark">10:47 AM</span>
+<span class="material-symbols-outlined text-primary text-[16px] font-bold">done_all</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 items-start max-w-[80%]">
+<div class="bg-bubble-other dark:bg-gray-800 p-1 rounded-2xl rounded-tl-none shadow-sm overflow-hidden w-64 border border-gray-200/50 dark:border-gray-700/50">
+<div class="relative h-32 bg-gray-300 dark:bg-gray-700 rounded-xl overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 opacity-60 bg-[url('https://www.google.com/maps/vt/pb=!1m4!1m3!1i14!2i4823!3i6157!2m3!1e0!2sm!3i420120488!3m8!2ses!3spl!5e1105!12m4!1e68!2m2!1sset!2sRoadmap!4e0!5m1!1e0!23i4111425')] bg-cover"></div>
+<div class="relative z-10 size-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-red-500 text-2xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="text-[13px] font-bold">Ubicación Actual</h4>
+<p class="text-[11px] text-text-secondary-light dark:text-text-secondary-dark mt-0.5">Esquina Calle Mayor con Av. Principal</p>
+<button class="w-full mt-3 py-2 bg-white dark:bg-gray-700 text-primary text-[12px] font-bold rounded-lg border border-gray-100 dark:border-gray-600 active:bg-gray-50">VER EN MAPAS</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 items-end self-end max-w-[80%]">
+<div class="bg-primary text-white px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm">
+<p class="text-[15px] leading-snug font-medium">¡Gracias! Llego en 5 minutos. Por favor, no lo pierdas de vista si es posible.</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark">10:48 AM</span>
+<span class="material-symbols-outlined text-primary text-[16px] font-bold">done_all</span>
+</div>
+</div>
+</main>
+<footer class="bg-white/90 dark:bg-card-dark/90 backdrop-blur-xl border-t border-gray-200/50 dark:border-gray-800/50 pb-safe px-4 pt-3 flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-9 rounded-full text-primary active:bg-gray-100 dark:active:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 28px;">add_circle</span>
+</button>
+<div class="flex-1 relative flex items-center">
+<input class="w-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full py-2 px-4 pr-10 text-[15px] focus:ring-1 focus:ring-primary outline-none text-text-main-light dark:text-text-main-dark placeholder:text-text-secondary-light" placeholder="iMessage" type="text"/>
+<button class="absolute right-3 text-text-secondary-light active:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 22px;">mic</span>
+</button>
+</div>
+<button class="flex items-center justify-center size-9 rounded-full bg-primary text-white shadow-md active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 20px;">arrow_upward</span>
+</button>
+</div>
+<div class="flex gap-2 pb-3 overflow-x-auto no-scrollbar">
+<button class="shrink-0 flex items-center gap-1.5 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-primary rounded-xl text-[12px] font-bold border border-blue-100 dark:border-blue-800/50 active:bg-blue-100">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            Enviar Foto
+        </button>
+<button class="shrink-0 flex items-center gap-1.5 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-primary rounded-xl text-[12px] font-bold border border-blue-100 dark:border-blue-800/50 active:bg-blue-100">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+            Mi Ubicación
+        </button>
+<button class="shrink-0 flex items-center gap-1.5 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-primary rounded-xl text-[12px] font-bold border border-blue-100 dark:border-blue-800/50 active:bg-blue-100">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+            Pedir Foto
+        </button>
+</div>
+</footer>
+
+</body></html>

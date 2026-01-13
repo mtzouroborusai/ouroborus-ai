@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explorar Mascotas Perdidas</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007AFF",
+                        "primary-dark": "#0056B3",
+                        "background-light": "#F2F7FF",
+                        "background-dark": "#0F172A",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B",
+                        "text-main": "#1E293B",
+                        "text-secondary": "#64748B",
+                        "accent-blue": "#E0F2FE"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 min-h-screen flex flex-col pb-24 relative overflow-x-hidden">
+<div class="sticky top-0 z-30 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-b border-blue-100 dark:border-gray-800">
+<div class="flex items-center justify-between px-4 pt-4 pb-2">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Ubicación actual</span>
+<div class="flex items-center gap-1 cursor-pointer group">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px; font-variation-settings: 'FILL' 1;">location_on</span>
+<h2 class="text-lg font-bold leading-tight text-text-main dark:text-white group-hover:text-primary transition-colors">Ciudad de México</h2>
+<span class="material-symbols-outlined text-text-secondary dark:text-gray-400" style="font-size: 20px;">keyboard_arrow_down</span>
+</div>
+</div>
+<button class="relative p-2.5 rounded-full bg-accent-blue/50 dark:bg-white/5 hover:bg-accent-blue transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-blue-400" style="font-size: 24px;">notifications</span>
+<span class="absolute top-2.5 right-2.5 h-2 w-2 bg-red-500 rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+</div>
+<div class="px-4 py-2">
+<div class="relative flex items-center h-12 w-full">
+<span class="absolute left-4 material-symbols-outlined text-text-secondary" style="font-size: 20px;">search</span>
+<input class="w-full h-full rounded-2xl bg-white dark:bg-surface-dark border-none shadow-sm pl-12 pr-4 text-text-main dark:text-white placeholder:text-text-secondary focus:ring-2 focus:ring-primary/20 transition-all text-sm font-medium" placeholder="Buscar por raza, color o nombre..." value=""/>
+</div>
+</div>
+<div class="flex gap-2.5 px-4 py-3 overflow-x-auto no-scrollbar snap-x">
+<button class="snap-start flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 shadow-md shadow-primary/20 transition-transform active:scale-95">
+<p class="text-white text-sm font-bold">Todos</p>
+</button>
+<button class="snap-start flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-blue-50 dark:border-white/5 px-4 transition-transform active:scale-95 hover:bg-accent-blue/30">
+<span class="text-base">🐶</span>
+<p class="text-text-main dark:text-gray-200 text-sm font-semibold">Perros</p>
+</button>
+<button class="snap-start flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-blue-50 dark:border-white/5 px-4 transition-transform active:scale-95 hover:bg-accent-blue/30">
+<span class="text-base">🐱</span>
+<p class="text-text-main dark:text-gray-200 text-sm font-semibold">Gatos</p>
+</button>
+<button class="snap-start flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-blue-50 dark:border-white/5 px-4 transition-transform active:scale-95 hover:bg-accent-blue/30">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">near_me</span>
+<p class="text-text-main dark:text-gray-200 text-sm font-semibold">Cerca</p>
+</button>
+<button class="snap-start flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-blue-50 dark:border-white/5 px-4 transition-transform active:scale-95 hover:bg-accent-blue/30">
+<span class="text-primary font-bold">$</span>
+<p class="text-text-main dark:text-gray-200 text-sm font-semibold">Recompensa</p>
+</button>
+</div>
+</div>
+<main class="flex-1 px-4 py-6">
+<div class="flex items-center justify-between mb-5">
+<h3 class="text-xl font-extrabold text-text-main dark:text-white tracking-tight">Mascotas Recientes</h3>
+<button class="text-sm font-bold text-primary hover:underline">Ver todo</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="group flex flex-col gap-3 bg-white dark:bg-surface-dark p-2 rounded-2xl shadow-sm border border-blue-50/50 dark:border-white/5 hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD80EeHwTd-qy_KHgF6Bz1FfNwExajcJ16WOC7TM2y3Mgge6ndzcjTnJcaxJhB42L8bWGGGF7Ob_fn6iMPUFeQowNhkCrDrqDRfIJwthOJwUxiKE7Gx00suF0K-2OJWQ4bXzhxLFKLshmj9RU2cC4nAqZYQQxaF0gBRM7EH1pjX7okR1kYYENiOeCzA5wEnUm319k3f4-9j9uwsHW_IPrACg1XNpJFwdVFE7PyWhkVGWQMYR2mLWcyiiORWrUuvb3AdPBGBtDg8icA");'></div>
+<div class="absolute top-2 left-2 bg-red-500/90 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">
+                    PERDIDO
+                </div>
+<button class="absolute top-2 right-2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-1.5 rounded-full text-white transition-colors">
+<span class="material-symbols-outlined block" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="px-1 pb-2">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-text-main dark:text-white text-base font-bold">Max</h4>
+<span class="text-[10px] font-bold text-text-secondary bg-accent-blue dark:bg-white/5 px-2 py-0.5 rounded text-primary">Hace 2h</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-primary/70" style="font-size: 14px;">location_on</span>
+<p class="text-text-secondary dark:text-gray-400 text-[11px] font-medium truncate">Parque México, CDMX</p>
+</div>
+<button class="w-full bg-primary text-white text-xs font-bold py-2.5 rounded-xl hover:bg-primary-dark shadow-md shadow-primary/20 transition-all active:scale-95">
+                    Contactar
+                </button>
+</div>
+</div>
+<div class="group flex flex-col gap-3 bg-white dark:bg-surface-dark p-2 rounded-2xl shadow-sm border border-blue-50/50 dark:border-white/5 hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRRlej-kZmy6d8ELkqZO_zPU_Jc9ashAGrHhPLP3VDQH6Ar1VipZyZsYXA0QLDiAWheeK6dljIYjqsya9uHhrPjEH6RZRkig-shIYtsIPCAPwLBcNUqaAEordP3UL-AKlRkN6PF_L_ute899fuHNEXkwMuWuAljogb-oK-BqnBozNMCVL1Z5JzZ2OkSyGMQE-5gaUalHFFw7QoBq-Pl3-ZrSxkAyrRJQVEtgHplDnoWFWd5Dy_yZKSQp7-caDi5qMr4OQzmCIbOq4");'></div>
+<div class="absolute top-2 left-2 bg-amber-400/90 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">
+                    VISTO
+                </div>
+<button class="absolute top-2 right-2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-1.5 rounded-full text-white transition-colors">
+<span class="material-symbols-outlined block" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="px-1 pb-2">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-text-main dark:text-white text-base font-bold">Luna</h4>
+<span class="text-[10px] font-bold text-text-secondary bg-accent-blue dark:bg-white/5 px-2 py-0.5 rounded text-primary">Ayer</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-primary/70" style="font-size: 14px;">location_on</span>
+<p class="text-text-secondary dark:text-gray-400 text-[11px] font-medium truncate">Centro, GDL</p>
+</div>
+<button class="w-full bg-accent-blue text-primary text-xs font-bold py-2.5 rounded-xl hover:bg-blue-100 transition-all active:scale-95">
+                    Ver Info
+                </button>
+</div>
+</div>
+<div class="group flex flex-col gap-3 bg-white dark:bg-surface-dark p-2 rounded-2xl shadow-sm border border-blue-50/50 dark:border-white/5 hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_7qGMSjLaJtj8_1qpxEsOOjAociF3HH9Tcvu1jpIUZgHTTqB6vRnHguqGxPRxJq-emOdGD32WeGLOsD-VGg_boaf__Q4SypO5c3sU4gmLwVJ2M5AG2cHU11xTeLSNoYmZ2X6SnUru-B2eUBgiYIip9-9ee7HWnZInYkdehiBF2ZaMzsEUzQNLF-xQVAZ2HU-7jXgVC5sDGVbFgfwXC2IWSi7DysXloCHUTJlywCx5Dd0uOU-i0THSocaIgsEstGiEPcHD9UqIIuw");'></div>
+<div class="absolute top-2 left-2 bg-primary/90 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">
+                    ENCONTRADO
+                </div>
+<button class="absolute top-2 right-2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-1.5 rounded-full text-white transition-colors">
+<span class="material-symbols-outlined block" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="px-1 pb-2">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-text-main dark:text-white text-base font-bold">Rocky</h4>
+<span class="text-[10px] font-bold text-text-secondary bg-accent-blue dark:bg-white/5 px-2 py-0.5 rounded text-primary">3 días</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-primary/70" style="font-size: 14px;">location_on</span>
+<p class="text-text-secondary dark:text-gray-400 text-[11px] font-medium truncate">Monterrey, NL</p>
+</div>
+<button class="w-full bg-primary text-white text-xs font-bold py-2.5 rounded-xl hover:bg-primary-dark shadow-md shadow-primary/20 transition-all active:scale-95">
+                    Contactar
+                </button>
+</div>
+</div>
+<div class="group flex flex-col gap-3 bg-white dark:bg-surface-dark p-2 rounded-2xl shadow-sm border border-blue-50/50 dark:border-white/5 hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-700" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmw1xmnzKTIehtFOUjpgUCe7LW7GfC0JVA5BhUSkQu3gG_HQ6mKwD0jtfA1--FxQAR9z8SrBEsgzadxxQ2QvHpD-nL39oCZZ_urNyIbU26hwDcx7oZ0s6RWgmFNFjMZy_gczkC7mfbYgRFIFavpYhzbudU7mWYo41rgW2C3vg4EnvvOocM3n_cEvm88AcJStZU9_b8XhNYL-7cheGQhyPn1Nddu_wB_C45h-zNdHjJLMnzv5PUyb_5KO6viaWZ1Zeoouos03F_jlQ");'></div>
+<div class="absolute top-2 left-2 bg-red-500/90 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">
+                    PERDIDO
+                </div>
+<button class="absolute top-2 right-2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-1.5 rounded-full text-white transition-colors">
+<span class="material-symbols-outlined block" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="px-1 pb-2">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-text-main dark:text-white text-base font-bold">Simba</h4>
+<span class="text-[10px] font-bold text-text-secondary bg-accent-blue dark:bg-white/5 px-2 py-0.5 rounded text-primary">Hoy</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-primary/70" style="font-size: 14px;">location_on</span>
+<p class="text-text-secondary dark:text-gray-400 text-[11px] font-medium truncate">Polanco, CDMX</p>
+</div>
+<button class="w-full bg-primary text-white text-xs font-bold py-2.5 rounded-xl hover:bg-primary-dark shadow-md shadow-primary/20 transition-all active:scale-95">
+                    Contactar
+                </button>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-28 right-5 z-40">
+<button class="flex items-center justify-center h-14 w-14 rounded-full bg-primary shadow-xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-white font-bold" style="font-size: 32px;">add</span>
+</button>
+</div>
+<nav class="fixed bottom-0 w-full z-40 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-xl border-t border-blue-50 dark:border-white/5 pb-safe pt-2 px-2">
+<div class="flex justify-around items-center h-16 pb-4">
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-primary" style="font-size: 26px; font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold text-primary">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group text-text-secondary dark:text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 26px;">map</span>
+<span class="text-[10px] font-semibold">Mapa</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group text-text-secondary dark:text-gray-500 hover:text-primary transition-colors">
+<div class="relative">
+<span class="material-symbols-outlined" style="font-size: 26px;">chat_bubble_outline</span>
+<span class="absolute -top-0.5 -right-0.5 h-2 w-2 bg-red-500 rounded-full"></span>
+</div>
+<span class="text-[10px] font-semibold">Mensajes</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group text-text-secondary dark:text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 26px;">account_circle</span>
+<span class="text-[10px] font-semibold">Perfil</span>
+</button>
+</div>
+</nav>
+<div class="h-6 w-full bg-white dark:bg-surface-dark fixed bottom-0 z-50"></div>
+
+</body></html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetFinder - Explorar (Modo Oscuro)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0066FF",
+                        "brand-blue": "#0052CC",
+                        "dark-bg": "#0B1120",
+                        "dark-card": "#171F2F",
+                        "dark-border": "#1E293B",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-dark-bg font-display antialiased overflow-hidden text-slate-200">
+<div class="relative flex h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-dark-bg border-x border-dark-border">
+<header class="pt-12 px-6 pb-4 flex flex-col gap-4 z-20">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl font-bold">pets</span>
+<h1 class="text-white text-xl font-extrabold tracking-tight">Explorar</h1>
+</div>
+<div class="flex gap-3">
+<button class="w-10 h-10 rounded-full bg-dark-card border border-dark-border flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-300 text-xl">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-dark-card border border-dark-border flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-300 text-xl">account_circle</span>
+</button>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-dark-card border-none rounded-2xl py-3 pl-10 pr-4 text-sm text-slate-200 placeholder-slate-500 focus:ring-1 focus:ring-primary" placeholder="Buscar por raza, color..." type="text"/>
+</div>
+<button class="bg-primary px-4 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-900/20">
+<span class="material-symbols-outlined text-white">tune</span>
+</button>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<button class="bg-primary text-white px-5 py-2 rounded-full text-xs font-bold whitespace-nowrap">Todos</button>
+<button class="bg-dark-card border border-dark-border text-slate-400 px-5 py-2 rounded-full text-xs font-semibold whitespace-nowrap">Perros</button>
+<button class="bg-dark-card border border-dark-border text-slate-400 px-5 py-2 rounded-full text-xs font-semibold whitespace-nowrap">Gatos</button>
+<button class="bg-dark-card border border-dark-border text-slate-400 px-5 py-2 rounded-full text-xs font-semibold whitespace-nowrap">Otros</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-6 pb-24 no-scrollbar">
+<div class="grid grid-cols-1 gap-6 pt-2">
+<div class="bg-dark-card rounded-3xl overflow-hidden border border-dark-border group">
+<div class="relative aspect-[4/3] w-full overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKz3GrCeUpx-hNyBTgcIAtMdbLu5bvnSU7FeDvalqFIS6Wk1Bs93fi_aMZ4Y5gKUWYdrKPm3XeZh2mGm_C2ZqG8E6IRwSdZlvfP6KmpQdahSCDkUBvzON_lgiPOUlKtgdXo8hg3UgO98ehtpNrp1LbJJJj0c28Eg4LmwJFyEzsXByLnMeFZk41VXD9QhBZHle27DCdLuptM3JUaJ7kfIhtG4iYfO7yxN5f5mVtAKfc4Ckxpenc6k4zEROCSwK9eaZJ-uX7UJpK3Dk");'></div>
+<div class="absolute top-4 left-4 z-20">
+<span class="bg-red-500/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Perdido</span>
+</div>
+<div class="absolute top-4 right-4 z-20">
+<button class="w-9 h-9 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white text-lg font-bold leading-none mb-1">Max</h3>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-medium">Polanco, CDMX • Hace 2h</span>
+</div>
+</div>
+<div class="bg-blue-900/20 px-3 py-1 rounded-lg">
+<span class="text-primary text-xs font-bold">Golden Retriever</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-brand-blue py-3 rounded-xl text-white font-bold text-sm shadow-lg shadow-blue-600/10 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">visibility</span>
+                            Ver Detalles
+                        </button>
+</div>
+</div>
+<div class="bg-dark-card rounded-3xl overflow-hidden border border-dark-border group">
+<div class="relative aspect-[4/3] w-full overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_AaBNCNvTJT3gBiTPd8awMX-DFsvD_FFKMjYKWs_6P1iGyNKcVKGVY1vxmTN4VOcyAz2F8m7qej1dsjkedsD6fZPV5qYD6oKE8ZZ4pLLW_ao8h9u7PZ9fQkNJTTl-VCuahbCpINiSaobxyFksDVaNN4huKDSZyq9zoy6U8aboPBGm0TQkCuWq3zqq9ltlvIBlH2oCVRTig2pmc7kQvrPyYIfGmnXLOklhrSBB8neVEpXQm0QWMwd9E1odDD1QkglvFjqzXLvfOgI");'></div>
+<div class="absolute top-4 left-4 z-20">
+<span class="bg-amber-500/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Visto</span>
+</div>
+<div class="absolute top-4 right-4 z-20">
+<button class="w-9 h-9 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white text-lg font-bold leading-none mb-1">Milo</h3>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-medium">Condesa, CDMX • Hace 5h</span>
+</div>
+</div>
+<div class="bg-blue-900/20 px-3 py-1 rounded-lg">
+<span class="text-primary text-xs font-bold">Gato Siamés</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-brand-blue py-3 rounded-xl text-white font-bold text-sm shadow-lg shadow-blue-600/10 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">visibility</span>
+                            Ver Detalles
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<nav class="absolute bottom-0 w-full bg-dark-bg/80 backdrop-blur-xl border-t border-dark-border flex items-center justify-around px-4 pb-8 pt-4 z-30">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined font-variation-fill-1">explore</span>
+<span class="text-[10px] font-bold">Explorar</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium">Mapa</span>
+</button>
+<div class="-mt-12">
+<button class="w-14 h-14 bg-primary rounded-full shadow-2xl shadow-blue-600/40 flex items-center justify-center border-4 border-dark-bg">
+<span class="material-symbols-outlined text-white text-3xl">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px] font-medium">Chats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</nav>
+<div class="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-blue-600/5 to-transparent pointer-events-none"></div>
+</div>
+<style>
+        .font-variation-fill-1 {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+
+</body></html>
